@@ -1,0 +1,128 @@
+\documentclass[11pt]{article}
+
+%aliases
+\def\hf{\frac12}
+
+%\usepackage{abbrevs}
+\usepackage{natbib}
+\usepackage{hyperref}
+\usepackage{graphicx}     % could insert ``draft'' between []
+\usepackage{caption}
+\usepackage{amsmath,amsfonts}
+\usepackage{enumitem}
+%\usepackage{subcaption}
+\pagestyle{empty}
+
+\setlength{\oddsidemargin}{0pt} % there is 1 inch before the
+                                % side margin in ``article'' class
+\setlength{\textwidth}{6.5in}
+
+\setlength{\voffset}{0pt}
+%\setlength{\topmargin}{-36pt}     % there is 1 inch before the
+\setlength{\topmargin}{-0.75in}     % there is 1 inch before the
+                                % top margin in ``article'' class and
+                                % then room for header, etc.
+\setlength{\textheight}{9.5in}
+%%%%%%%%%%%
+
+\begin{document}
+{\centering{\bf\Large HERA : Antenna Design Discussion} \\}
+{
+\centering{\bf\large Hydrogen Epoch of Reionization Array \\}
+}
+\vspace*{0.5cm}
+
+\section{Cost Vs. Sensitivity}
+    We weigh the cost and sensitivity benefits of the HERA antenna and array. 
+In order to accomplish this we define our figure of merit as the inverse of the 
+Cost (C) times the sensitivity ($\Delta_{N}^{2}$):
+\begin{equation}
+\label{eqn:fom}
+    F.O.M = [C \times \Delta_{N}^{2}]^{-1}.
+\end{equation}
+
+Our sensitivity is proportional to $k^{3}$, $N^{-1}$, $u^{\frac{1}{2}}$, and $\Omega^{\frac{5}{2}}$. $N$ is the 
+number of antennas, $u$ is the baseline length, and $\Omega$ is the beam size. Therfore, 
+the sensitivity goes as
+\begin{equation}
+\begin{split}
+    \Delta_{N}^{2} &\propto k^{3}N^{-1}u^{\frac{1}{2}} \Omega^{\frac{5}{2}} \\
+    \Rightarrow \Delta_{N}^{2} &\propto k^{3}N^{-1} D^{\hf} (D^{-2})^{\frac{5}{4}} \\
+    \Rightarrow \Delta_{N}^{2} &\propto k^{3}N^{-1} D^{-2}\\
+\end{split}
+\end{equation}
+
+In general, the minimum $k$ mode we can work at is 
+\begin{equation}
+    k_{min} = k_{H} + \Delta{k_{fg}},
+\end{equation}
+where $k_{H}$ is the $k$-mode given by the geometrical horizon limit of our baseline, and $k_{fg}$ is 
+the width of the foregrounds in $k$-space. Assuming that our antennas are placed next to each other, 
+\begin{equation}
+    k_{H} = \frac{B}{c}\frac{dk}{d\eta},
+\end{equation}
+where $B$ is the baseline length (in our case $B$ = $D$, the diameter) and $\frac{dk}{d\eta}$ is 
+some cosmological constant of proportionality that depends on the redshift.
+
+We will now look at a few limiting cases of $k$ and cost, $C$. In $k$-space our cases are 
+\begin{enumerate}
+    \item{$k_{H} \gg k_{fg} \Rightarrow \Delta_{N}^{2} \propto D^{1}N^{-1}$}
+    \item{$k_{fg} \gg k_{H} \Rightarrow \Delta_{N}^{2} \propto D^{-2}N^{-1}$} 
+    \item{$k_{H} \approx k_{fg} \Rightarrow \Delta_{N}^{2} \propto D^{1}N^{-1}$}
+    \item{$k > k_{min}$.}
+\end{enumerate}
+
+The cost models are defined in terms of $C$. The total cost is proportional to 
+\begin{equation}
+    C \propto C_{0} + C_{1}N + C_{2}N^{2}
+\end{equation}
+where $C_{0} \propto D^{0}$, $C_{1} \propto D^{2}$, and $C_{2} \propto D^{0}$, and $N$ is the number of antennas.
+The limiting cases for the cost are when
+\begin{enumerate}[label=\Alph*.]
+    \item{Linearly dominated : $C \approx C_{1}N \approx D^{2}N$}
+    \item{Quadratic in $N$ : $C \approx C_{2}N^{2}$}
+    \item{Equal contributions : $C_{0} \approx C_{1}N \approx C_{2}N^{2}$}
+\end{enumerate}
+
+\begin{table}[htdp]
+\caption{This table shows the proportionalities of the FOM as a function of the diameter ($D$) and the 
+        number of antennas $N$. Each of the numbers (top row) and letters (left column) signifies the regime
+        we are in, as given in the text.}
+\begin{center}
+\begin{tabular}{|c|c|c|c|c|}
+\hline
+&         1 &     2 &       3 &         4 \\\hline
+A &  $D^{-3}$ &  constant  & $D^{-3}$  & constant \\\hline
+B &  $D^{-1}N^{-1}$ & $N^{-1}D^{2}$ & $D^{-1}N^{-1}$ & $N^{-1}D^{2}$\\\hline
+C &  $ (DN^{-1} + D^{3} + DN)^{-1}  $  & $(N^{-1}D^{-2} + 1 + N^{-1}D^{2})$ & $(DN^{-1} + D^{3} + DN)^{-1}$ & $(N^{-1}D^{-2} + 1 + N^{-1}D^{2})$ \\
+\hline
+\end{tabular}
+\end{center}
+\label{tbl:matrix}
+\end{table}
+
+Table \ref{tbl:matrix} gives a break down of every possible scenario. It provides the FOM (in proportionalites)
+as a function of the diameter and number of elements. 
+
+Now consider the case where we are in the fixed cost regime so that the figure of merrit is proportional to the 
+inverse of the sensitivity. PAPER falls in the case A for costing. That is, we are linearly dominated and our 
+cost goes as $C \propto D^{2}N$. Since our cost is constant, we can vary our diameter as $N^{-\hf}$, or vary 
+the number of antennas as $D^{-2}$. If we look at the horizon dominated case, then the figure of merit says that 
+we should increase the number of antennas to get the highest sensitivit for our fixed cost. This is because, 
+$D \propto N^{-\hf} \Rightarrow N^{\frac{3}{2}}$, therefore increasing the number of antennas will maximize the 
+FOM. 
+However, if we are forground dominated then the FOM is constant and we want to twiddle the knobs so that we have
+the $D \propto N^{-hf}$. Further discussion of this scenario is required. Note, that the scenarios repeat with 
+cases 3 and 4.
+
+
+
+
+
+
+
+
+
+
+
+\end{document}
