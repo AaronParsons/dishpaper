@@ -60,6 +60,7 @@ In general, the minimum $k$ mode we can work at is
 where $k_{H}$ is the $k$-mode given by the geometrical horizon limit of our baseline, and $k_{fg}$ is 
 the width of the foregrounds in $k$-space. Assuming that our antennas are placed next to each other, 
 \begin{equation}
+\label{eqn:k_horizon}
     k_{H} = \frac{B}{c}\frac{dk}{d\eta},
 \end{equation}
 where $B$ is the baseline length (in our case $B$ = Diameter,$D$) and $\frac{dk}{d\eta}$ is 
@@ -157,14 +158,14 @@ Thus, for a feed height (or focal length), $f$, we have
 \end{equation}
 For a moderate attenuation value of $A=-15$dB, we have $f<4$m.
 
-%\begin{figure}
-%\centering
-%\includegraphics[width=4in]{plots/focal_len_vs_eff.png}
-%\caption{Total efficiency as a function of focal length, for various diameters
-%of parabolic dishes (in meters).  Choosing a fiducial focal length of $f=3.5$m,
-%dish diameters of $10\le d\le 12$m yield efficiencies of $\eta\sim0.7$.}
-%\label{fig:focal_len_vs_eff}
-%\end{figure}
+\begin{figure}
+\centering
+\includegraphics[width=4in]{plots/focal_len_vs_eff.png}
+\caption{Total efficiency as a function of focal length, for various diameters
+of parabolic dishes (in meters).  Choosing a fiducial focal length of $f=3.5$m,
+dish diameters of $10\le d\le 12$m yield efficiencies of $\eta\sim0.7$.}
+\label{fig:focal_len_vs_eff}
+\end{figure}
 
 As shown in Figure \ref{fig:focal_len_vs_eff}, for a chosen focal length of
 $f=3.5$m, dish diameters in the range of 10 to 12m yield efficiencies of
@@ -181,6 +182,33 @@ relatively narrow field of view associated with a larger dish may go a long way
 toward mitigating some of the polarization leakage problems that are just on the
 horizon of being discovered with current designs.  However, without concrete
 measurements, this is largely speculation.
+
+
+\subsection{The Knee}
+The eor power spectrum has an upward slope for low $k$-modes which levels off
+around $k$ = 0.15. It would be nice to work inside this $k$-mode to say
+something interesting about eor. This poses a problem due to the fact that
+without knowing the width of our foregrounds, we can't say for sure which
+$k$-modes are corrupted. We also don't want to limit the size of our antenna too
+much so as to decrease our sensitivity. 
+
+The corresponding $k$-mode for a dish diameter of 10 $m$ is 0.016 and for a dish
+diameter of 14 $m$ is 0.023 (see Equation \ref{eqn:k_horizon}). Hence, we have
+some room for the foreground width's. But, the problem is that we do not know
+precisely what they are. 
+
+In addition to the width of the foreground and the maximum delay of the
+baseline, narcissistic reflections add into our $k$ budget. For a 10 and 14 meter
+diameter dish we expect to have a maximum efficiency at a focal length of 3.5
+and 4.5 $m$, respectively. Nominally, we would like these reflections to be 60dB
+down upon entering the feed. Postulating that each reflection reduces the power
+by 15 dB, we need four reflections for the right signal to enter our feed. This
+corresponds to a delay of 45.9 ($k$=0.023)  and 59.0 ($k$=0.030) $ns$ for focal
+lengths of 3.5 and 4.5 meters, respectively. Therefor, our budget comes out the
+$k_{10}$ = 0.039 and $k_{14}$ = 0.053.
+
+As long as the width of the foregrounds are less than $\Delta k < 0.1$, we are
+in good shape to working in the knee. 
 
 
 
