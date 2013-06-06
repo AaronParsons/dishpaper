@@ -40,9 +40,10 @@ Cost (C) times the sensitivity ($\Delta_{N}^{2}$):
 \label{eqn:fom}
     F.O.M = [C \times \Delta_{N}^{2}]^{-1}.
 \end{equation}
+The goal is to maximize the figure of merit.
 
 Our sensitivity is proportional to $k^{3}$, $N^{-1}$, $u^{\frac{1}{2}}$, and $\Omega^{\frac{5}{2}}$. $N$ is the 
-number of antennas, $u$ is the baseline length, and $\Omega$ is the beam size. Therfore, 
+number of antennas, $u$ is the baseline length, and $\Omega$ is the beam size. Therefore, 
 the sensitivity goes as
 \begin{equation}
 \begin{split}
@@ -61,7 +62,7 @@ the width of the foregrounds in $k$-space. Assuming that our antennas are placed
 \begin{equation}
     k_{H} = \frac{B}{c}\frac{dk}{d\eta},
 \end{equation}
-where $B$ is the baseline length (in our case $B$ = $D$, the diameter) and $\frac{dk}{d\eta}$ is 
+where $B$ is the baseline length (in our case $B$ = Diameter,$D$) and $\frac{dk}{d\eta}$ is 
 some cosmological constant of proportionality that depends on the redshift.
 
 We will now look at a few limiting cases of $k$ and cost, $C$. In $k$-space our cases are 
@@ -85,7 +86,7 @@ The limiting cases for the cost are when
 \end{enumerate}
 
 \begin{table}[htdp]
-\caption{This table shows the proportionalities of the FOM as a function of the diameter ($D$) and the 
+\caption{This table shows the proportionality's of the FOM as a function of the diameter ($D$) and the 
         number of antennas $N$. Each of the numbers (top row) and letters (left column) signifies the regime
         we are in, as given in the text.}
 \begin{center}
@@ -101,23 +102,85 @@ C &  $ (DN^{-1} + D^{3} + DN)^{-1}  $  & $(N^{-1}D^{-2} + 1 + N^{-1}D^{2})$ & $(
 \label{tbl:matrix}
 \end{table}
 
-Table \ref{tbl:matrix} gives a break down of every possible scenario. It provides the FOM (in proportionalites)
+Table \ref{tbl:matrix} gives a break down of every possible scenario. It provides the FOM (in proportionality's)
 as a function of the diameter and number of elements. 
 
-Now consider the case where we are in the fixed cost regime so that the figure of merrit is proportional to the 
+Now consider the case where we are in the fixed cost regime so that the figure of merit is proportional to the 
 inverse of the sensitivity. PAPER falls in the case A for costing. That is, we are linearly dominated and our 
 cost goes as $C \propto D^{2}N$. Since our cost is constant, we can vary our diameter as $N^{-\hf}$, or vary 
 the number of antennas as $D^{-2}$. If we look at the horizon dominated case, then the figure of merit says that 
-we should increase the number of antennas to get the highest sensitivit for our fixed cost. This is because, 
+we should increase the number of antennas to get the highest sensitivity for our fixed cost. This is because, 
 $D \propto N^{-\hf} \Rightarrow N^{\frac{3}{2}}$, therefore increasing the number of antennas will maximize the 
 FOM. 
-However, if we are forground dominated then the FOM is constant and we want to twiddle the knobs so that we have
+However, if we are foreground dominated then the FOM is constant and we want to twiddle the knobs so that we have
 the $D \propto N^{-hf}$. Further discussion of this scenario is required. Note, that the scenarios repeat with 
 cases 3 and 4.
 
+\section{The Parabolic Dish}
 
+\begin{figure}[!b]
+\centering
+\includegraphics[width=3in]{plots/eor_dish.png}
+\caption{}
+\label{fig:element_dish}
+\end{figure}
 
+This element concept is novel, but bears similarities to a drift-scan observing
+mode explored on the GMRT, and to the cylinder dish concept being explored for
+CHIME.  
 
+In order for a parabolic (or cylindrical) dish to work for 21cm intensity
+mapping, the focal length and dish diameter must be carefully controlled to
+avoid reflections that enter at a significant delay, and thus modulate
+foregrounds to corrupt scales at the corresponding $k_\parallel$.  Based on
+recent work characterizing foregrounds, it seems reasonable to ask that a dish
+not create more spectral structure than the shortest ($8\lambda\approx15$m)
+baselines that have been shown to be well-behaved.  Beyond limiting the dish
+diameter to 15m, this requirement restricts the focal length, since once of the
+primary resonances in the dish will be the ``narcissistic waves'' that arise
+between the primary and secondary reflector and/or the primary reflector and the
+antenna feed.  These latter waves are a consequence of the necessarily imperfect
+match of the feed electronics to the impedance of free space.
+
+To mitigate narcissistic refletions, one typically adds an attenuator or
+``splash cone'' directly below the feed.  If we posit that reflections must be
+suppressed by $-60$dB at delays corresponding to the time it takes to travel
+15m, and if we assume that reflections are attenuated by a factor $A$ for each
+crossing of the attenuator placed below the feed, then the number of allowed
+reflections, $R$, is given by
+\begin{equation}
+R={\rm floor}\left(\frac{-60{\rm dB}}{2A}\right).
+\end{equation}
+Thus, for a feed height (or focal length), $f$, we have
+\begin{equation}
+2Rf<15{\rm m}.
+\end{equation}
+For a moderate attenuation value of $A=-15$dB, we have $f<4$m.
+
+%\begin{figure}
+%\centering
+%\includegraphics[width=4in]{plots/focal_len_vs_eff.png}
+%\caption{Total efficiency as a function of focal length, for various diameters
+%of parabolic dishes (in meters).  Choosing a fiducial focal length of $f=3.5$m,
+%dish diameters of $10\le d\le 12$m yield efficiencies of $\eta\sim0.7$.}
+%\label{fig:focal_len_vs_eff}
+%\end{figure}
+
+As shown in Figure \ref{fig:focal_len_vs_eff}, for a chosen focal length of
+$f=3.5$m, dish diameters in the range of 10 to 12m yield efficiencies of
+$\epsilon\approx0.7$.  Hence, the total effective collecting area of a dish that
+has been tuned for 21cm intensity mapping at EoR frequencies is of order $80{\rm
+m}^2$.  The corresponding effective beam area at 150 MHz 
+(noting the issue described in \S\ref{sec:beam_area}) is approximately
+\begin{equation}
+\Omega^\prime\approx0.06\ {\rm sr}.
+\end{equation}
+
+In addition to the substantial collecting area that this design provides, the
+relatively narrow field of view associated with a larger dish may go a long way
+toward mitigating some of the polarization leakage problems that are just on the
+horizon of being discovered with current designs.  However, without concrete
+measurements, this is largely speculation.
 
 
 
