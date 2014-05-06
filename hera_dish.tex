@@ -1,0 +1,166 @@
+\documentclass[preprint]{aastex}  % USE THIS TO MAKE BIB, THEN FORMAT USING EMULATEAPJ
+%\documentclass[twocolumn,numberedappendix]{emulateapj}
+\shorttitle{Transit Dish for 21cm Intensity Mapping}
+\shortauthors{XXX Authors}
+
+\usepackage{amsmath}
+\usepackage{graphicx}
+\usepackage[figuresright]{rotating}
+%\usepackage{rotating}
+\usepackage{natbib}
+%\usepackage{pdflscape}
+%\usepackage{lscape}
+\citestyle{aa}
+
+\newcommand{\BigO}[1]{\mathcal{O}(#1)}
+\def\k{\mathbf{k}}
+\def\r{\mathbf{r}}
+\def\V{\mathbb{V}}
+\def\At{\tilde{A}}
+\def\Vt{\tilde{V}}
+\def\Tt{\tilde{T}}
+\def\tb{\langle T_b\rangle}
+
+\begin{document}
+\title{A Transit Dish Design for High-Redshift 21cm Intensity Mapping Experiments}
+
+\author{
+%Aaron R. Parsons\altaffilmark{1,2},
+%Adrian Liu\altaffilmark{1},
+%James E. Aguirre\altaffilmark{3},
+%Zaki S. Ali\altaffilmark{1},
+%Richard F. Bradley\altaffilmark{4,5,6},
+%Chris L.  Carilli\altaffilmark{7},
+%David R. DeBoer\altaffilmark{2},
+%Daniel C. Jacobs\altaffilmark{8},
+%David F. Moore\altaffilmark{3},
+%Jonathan C. Pober\altaffilmark{1},
+}
+
+%\altaffiltext{1}{Astronomy Dept., U. California, Berkeley, CA}
+%\altaffiltext{2}{Radio Astronomy Lab., U. California, Berkeley, CA}
+%\altaffiltext{3}{Dept. of Physics and Astronomy, U. Pennsylvania, Philadelphia, PA}
+%\altaffiltext{4}{Dept. of Electrical and Computer Engineering, U. Virginia, Charlottesville, VA}
+%\altaffiltext{5}{National Radio Astronomy Obs., Charlottesville, VA}
+%\altaffiltext{6}{Dept. of Astronomy, U. Virginia, Charlottesville, VA}
+%\altaffiltext{7}{National Radio Astronomy Obs., Socorro, NM}
+%\altaffiltext{8}{School of Earth and Space Exploration, Arizona State U., Tempe, AZ}
+%\altaffiltext{9}{Square Kilometer Array, South Africa Project, Cape Town, South Africa}
+%\altaffiltext{10}{Cavendish Lab., Cambridge, UK}
+
+\begin{abstract}
+\end{abstract}
+
+\section{Introduction}
+
+\begin{itemize}
+\item importance of frequency smoothness
+\item collecting area
+\end{itemize}
+
+\section{Background}
+\label{sec:background}
+
+\begin{itemize}
+\item $\tau$-modes, wedge, EoR window
+\item geometric interpretation of $\tau$-modes
+\end{itemize}
+
+\section{Geometric Constraints}
+\label{sec:geometry}
+
+\begin{itemize}
+\item first principles of EoR window, how that maps to a specification for design
+\item cost analysis
+\item critically constrained design
+\item symmetric on-axis parabaloid, for reasons of symmetry in polarization response
+\end{itemize}
+
+\section{Design and Construction}
+\label{sec:design}
+
+\begin{itemize}
+\item bent pipes as approximation to parabola
+\item faceting (rms deviation from parabaloid)
+\item shielding (screens)
+\item splash cone
+\item hub
+\item feed suspension
+\item materials, PVC selection
+\item design lifetime (wood, PVC)
+\end{itemize}
+
+\section{Simulated Performance}
+\label{sec:sim}
+
+\begin{itemize}
+\item beam pattern
+\item delay performance (E-M modeling)
+\end{itemize}
+
+\section{Fabrication and Deployment}
+\label{sec:deploy}
+
+\begin{itemize}
+\item lessons/principles
+\item process to precision to specifications on precision
+\end{itemize}
+
+\section{Reflectometry Test Setup}
+\label{sec:reflect}
+
+\begin{itemize}
+\item reflectometry
+\item hardware
+\item calibration of the good VNA
+\item feed height test
+\item configurations
+\item window function used in delay transform
+\end{itemize}
+
+\section{Results}
+\label{sec:results}
+
+\begin{itemize}
+\item delay spectrum for configurations
+\item cost
+\item photos of constructed element
+\item XXX hook up receiver and to a sky test?
+\item measured parabolicity
+\item why were we right in the antenuation per reflection?
+\item does the cone help?
+\item how well did we place everything?
+\item ways to ensure spec in field
+\item mention extender as unnecessary in flat deployments
+\end{itemize}
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+\begin{itemize}
+\item relevance to HERA, project cost
+\item link Pober et al. (2014) sensitivity/science
+\item polarization matching
+\item frequency coverage, need for a feed re-design.
+\end{itemize}
+
+\section{Acknowledgment}
+
+We would like to thank SKA-SA for the site infrastructure, maintenance, and observing support
+that has made this work possible, as well as the significant efforts of the staff at
+NRAO's Green Bank and Charlottesville sites.  AP would like to thank M. McQuinn and A. Lidz
+for helpful discussions and ionization models.
+The PAPER project is supported
+by the National Science Foundation (awards 0804508,
+1129258, and 1125558), and a generous grant
+from the Mt. Cuba Astronomical Association.
+
+% ---------------------------------------------------------------------
+% ---------------------------------------------------------------------
+% ---------------------------------------------------------------------
+
+\bibliographystyle{apj}
+\bibliography{biblio}
+
+\end{document}
+
