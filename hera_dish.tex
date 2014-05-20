@@ -79,14 +79,35 @@
 \section{Design and Construction}
 \label{sec:design}
 
+\subsection{bent pipes as approximation to parabola}
+
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =\textwidth]{}
+	\caption{THIS FIGURE SHOWS THE ANALYSIS ON PARABOLA
+\label{Fig:} }
+	\end{center}
+\end{figure}
+
+
+\subsection{faceting (rms deviation from parabaloid)}
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =\textwidth]{}
+	\caption{THIS FIGURE SHOWS THE PHOTGRAMMRY ANALYSIS 
+\label{Fig:} }
+	\end{center}
+\end{figure}
+
+
 \begin{itemize}
-\item bent pipes as approximation to parabola
-\item faceting (rms deviation from parabaloid)
+\item bent pipes as approximation to parabola 
+\item faceting (rms deviation from parabaloid)  
 \item shielding (screens)
 \item splash cone
-\item hub
-\item feed suspension
-\item materials, PVC selection
+\item hub --> see technical doc
+\item feed suspension (feed with mast, back screen by kevlar wire)
+\item materials, PVC selection -> construction_journal.tex
 \item design lifetime (wood, PVC)
 \end{itemize}
 
@@ -106,13 +127,72 @@
 \item process to precision to specifications on precision
 \end{itemize}
 
+
+
+
+
 \section{Reflectometry Test Setup}
 \label{sec:reflect}
+During the contruction process for the HERA prototype, we use TDR to verify the reflections on the dish due to impedance mistmatch between the feed electronics and the sky signal match our theoretical expection in delay domain. The feed impedance from the VNA and cable is 50 $\Omega\times4$(4:1 balun at each dipole)  and the free space $120\pi\Omega$. TDR works by showing the impedance mismatch locations as time by measuring the reflected signal to the incident signal. Each polarization is fed into one port connected to the VNA which provides a frequency swept signal and inverse Fourier transform is then performed. 
+
+In this prototype, the focal length is $4.5$m, thus for 2 reflections, i.e. 4 crossing attenuation is 59.0ns in time domain.
+
+\subsection{Choice of Hardware}
+The dipole feed element consists of the PAPER feed, a mating board, one 4:1 balun for each polarization, 50$\Omega$ LMR400 cables of length 10m where the singal attenuation over 10m is ~ 0.5dB @ 150MHz. 
+The cables are connected to the two ports of an Agilent VNA ES8753 for reflectometry measurements. 401 data samples are taken from 50MHz to 1000MHz and gives a time resolution of 1.05ns, each set of data are average of 16 measurements for higher signal-to-noise ratio.
+
+Later in May 2014, WORKING ON....
+the mating board, baluns are replaced by the 75$\Omega$ PAPER baluns and receiver, output $50\Omega$. 
+ANY specs HERE?????
+
+\subsection{Calibration of VNA}
+Calibration is performed prior to taking measurements to eliminate the effects caused by cables and connectors. After calibration, the reference plane is moved to the tips of the cables with zero phase, loss and mistmatch such that the measurements are only showing the effects of the feed element. The full two port calibration is done by attaching calibration standards (Short, Open, Load, and Through) to the end of the $50\Omega$cables, the VNA calculates the correction coefficients by calibrating out at the calibration standards' impedances that are applied subsequently to each measurements with the feed connected. 
+
+
+\subsection{Feed Height Test}
+S11 S22 taken at heights: $67"$, $10'3.5"$, $14'0.5"$ above the dish.
+See configurations and Delay Spectrum for Configurations under result section for images
+
+
+\subsection{Configurations}
+May 5th stuff
+@ height 14' 6"
+mountain bumps ~ 60' - 80'
+
+Dish without cone, with screen
+set1- set2: measurements without cone, 2 metal sheets covering the entrace to the dish, covering panel A, B
+set5- set6: measurements with cone, 2 metal sheets covering the entrance to the dish, covering panel A, B
+
+April 16
+@ 14'3" 
+no_cone1 = containing data taken without cone with 1 metal sheet
+@14'6"
+set3- set4: measuremnets with cone, 1 metal sheet covering the entrance to the dish, covering panel A
+
+dish different heights
+Mar 28
+h1 = 67"
+h2 = 10'3.5"
+h3 = 14'0.5"
+
+
+\subsection{Window Functions}
+
+
+
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =\textwidth]{}
+	\caption{PUT FIGURE SHOW WINDOW 
+\label{Fig:} }
+	\end{center}
+\end{figure}
+
 
 \begin{itemize}
-\item reflectometry
-\item hardware
-\item calibration of the good VNA
+\item reflectometry 
+\item hardware 
+\item calibration of the good
 \item feed height test
 \item configurations
 \item window function used in delay transform
@@ -120,6 +200,91 @@
 
 \section{Results}
 \label{sec:results}
+\subsection{Delay Spectrum for Configurations}
+Using TDR 
+
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =\textwidth]{reflectometry_plots/configcompare}
+	\caption{Shows mar28 height tests, apr16, may5 cone test
+\label{Fig:} }
+	\end{center}
+\end{figure}
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =\textwidth]{reflectometry_plots/configcompare10-150ns}
+	\caption{Shows mar28 height tests, apr16, may5 cone test zoomed on 10-150ns, can see height test changed the delay
+\label{Fig:} }
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =\textwidth]{reflectometry_plots/Mar28/s11all-mar28mix17set1}
+	\caption{Shows mar28 height tests, apr16, may5 cone test and test not on dish, shows bump is reflection due to surroundings.
+\label{Fig:} }
+	\end{center}
+\end{figure}
+
+May 5th stuff
+@ height 14' 6"
+mountain bumps ~ 60' - 80'
+
+Dish without cone, with screen
+set1- set2: measurements without cone, 2 metal sheets covering the entrace to the dish, covering panel A, B
+set5- set6: measurements with cone, 2 metal sheets covering the entrance to the dish, covering panel A, B
+
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =\textwidth]{reflectometry/May5/set1vsset3zoom}
+	\caption{CONFIG 1
+\label{Fig:} }
+	\end{center}
+\end{figure}
+=====
+
+April 16
+@ 14'3" 
+no_cone1 = containing data taken without cone with 1 metal sheet
+@14'6"
+set3- set4: measuremnets with cone, 1 metal sheet covering the entrance to the dish, covering panel A
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =\textwidth]{reflectometry/May5/nocone_vs_set3zoom}
+	\caption{CONFIG 2
+\label{Fig:} }
+	\end{center}
+\end{figure}
+
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =\textwidth]{reflectometry/May5/S11_1st2nd_refl}
+	\caption{Shows cone VS no cone, combine 2 plots above, apparent difference cone make, but needs redesign for better backlobe minimization as seen from ~48ns.
+\label{Fig:} }
+	\end{center}
+\end{figure}
+
+========
+dish different heights
+Mar 28
+h1 = 67"
+h2 = 10'3.5"
+h3 = 14'0.5"
+
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =\textwidth]{reflectometry_plots/Mar28/height_test_zoom}
+	\caption{height test zoomed
+\label{Fig:} }
+	\end{center}
+\end{figure}
+
+
+\subsection{Cone test}
+> show May 5th cone helped on reduce backlobe, see section \ref{label:reflect}
+
+\subsection{How well did we place everything}
+>See contruction_journal
 
 \begin{itemize}
 \item delay spectrum for configurations
@@ -164,3 +329,10 @@ from the Mt. Cuba Astronomical Association.
 
 \end{document}
 
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =\textwidth]{}
+	\caption{
+\label{Fig:} }
+	\end{center}
+\end{figure}
