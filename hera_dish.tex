@@ -165,46 +165,26 @@ The dish structure is made out of schedule 40, white PVCs to minimize the bendin
 
 \section{Reflectometry Test Setup}
 \label{sec:reflect}
-During the contruction process for the HERA prototype, we use Time Domain reflectometry(TDR) to measure the reflections on the dish as a function of time due to impedance mistmatch between the feed electronics and the sky signal. The feed characteristic impedance from the VNA and cable is 50 $\Omega\times4 $(4:1 passive balun at each dipole) and that of the free space $120\pi\Omega$. Each polarization is fed into one port connected to the VNA which provides a frequency swept signal and inverse Fourier transform is then performed.  In this prototype, the focal length is $4.5$m, thus for 2 reflections, i.e. 4 crossings attenuation is 59.0ns in time domain.
+During the contruction process for the HERA prototype, we use Time Domain reflectometry(TDR) to measure the reflections on the dish as a function of time due to impedance mistmatch between the feed electronics and the sky signal. The feed characteristic impedance from the VNA and cable is 50 $\Omega\times 4$ (4:1 passive balun at each dipole) and that of the free space $120\pi\Omega$. Each polarization is fed into one port connected to the VNA which provides a frequency swept signal and inverse Fourier transform is then performed.  In this prototype, the focal length is $4.5$m, thus for 2 reflections, i.e. 4 crossings attenuation is 59.0ns in time domain.
 
 
 \subsection{Choice of Hardware}
-The dipole feed element consists of the PAPER feed, a mating board, one 4:1 passive balun for each polarization, 50$\Omega$ LMR400 cables of length 10m where the singal attenuation over 10m is ~ 0.5dB at 150MHz. 
+The dipole feed element consists of the PAPER feed, a mating board, one 4:1 passive balun for each polarization, 50$\Omega$ LMR400 cables of length 10m where the singal attenuation over 10m is $\sim$0.5dB at 150MHz. 
 The cables are connected to the two ports of an Agilent VNA ES8753 for reflectometry measurements. 
 
 
 \subsection{Calibration of VNA}
 Calibration is performed prior to taking measurements to eliminate the effects caused by cables and connectors. Performing calibration shifts the reference plane to the SMA connectors of the cables that are connecting the baluns with zero phase, zero loss and zero mistmatch, the measurements taken are showing only the effects of the feed and baluns under different configurations. The full two port calibration is done by attaching the calibration standards (Short, Open, Load, and Through) to the end of the $50\Omega$ cables, the VNA calculates the correction coefficients by calibrating out at the calibration standards' impedances and applies the coefficients subsequently to each measurements.
 
-\subsection{Feed Height Test}
+\subsection{Configurations}
+The measurements are taken with 401 data samples between 50MHz to 1000MHz, giving a time resolution of 1.05ns; each set of data is averaged by 16 measurements for higher SNR. 
+
 The feed height test is carried out at three different heights above the dish: $67"$, $10'3.5"$, and $14'0.5"$.
 See Delay Spectrum for Configurations under result section for images
 
 
-\subsection{Configurations}
-The measurements are taken with 401 data samples between 50MHz to 1000MHz, giving a time resolution of 1.05ns; each set of data is averaged by 16 measurements for higher SNR. 
+The cone test is carried at height $14' 6"$, measurements with and without cone, 2 metal sheets covering the entrace to the dish, covering panel A, B.
 
-
-
-
-
-
-
-
-
-(SELF NOTE)April 16
-@ 14'3" 
-$no_cone1 $= containing data taken without cone with 1 metal sheet
-@14'6"
-set3- set4: measuremnets with cone, 1 metal sheet covering the entrance to the dish, covering panel A
-
-
-
-May 5th stuff
-@ height 14' 6"
-Dish without cone, with screen
-set1- set2: measurements without cone, 2 metal sheets covering the entrace to the dish, covering panel A, B
-set5- set6: measurements with cone, 2 metal sheets covering the entrance to the dish, covering panel A, B
 
 \subsection{Window Functions}
 To deal with real-life situations of a finite bandwidth which results in spectral leakage in time domain,  the Kasier-Bessel window is applied to the frequency domain data prior to the inverse Fourier transform in order to increase the dynamic range of the measurements in time domain; the disadvantage however, is the widening of space between data points.
@@ -212,9 +192,9 @@ To deal with real-life situations of a finite bandwidth which results in spectra
 
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[width =\textwidth]{empty}
-	\caption{PUT FIGURE SHOW WINDOW 
-\label{Fig:} }
+	\includegraphics[width =\textwidth]{./reflectometry_plots/windowfunction}
+	\caption{PUT FIGURE SHOW WINDOW in TIME domain, oplot with Kaiser - Bassel and without Kaiser Bessel (NA Time LOG VS FREQ IFFT without window)
+\label{Fig:window}}
 	\end{center}
 \end{figure}
 
@@ -231,19 +211,12 @@ To deal with real-life situations of a finite bandwidth which results in spectra
 \section{Results}
 \label{sec:results}
 \subsection{Delay Spectrum for Configurations}
-Using TDR 
+The VNA results:
 
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[width =\textwidth]{./reflectometry_plots/configcompare}
-	\caption{Shows mar28 height tests, apr16, may5 cone test
-\label{Fig:} }
-	\end{center}
-\end{figure}
-\begin{figure}[H]
-	\begin{center}
 	\includegraphics[width =\textwidth]{./reflectometry_plots/configcompare10-150ns}
-	\caption{Shows mar28 height tests, apr16, may5 cone test zoomed on 10-150ns, can see height test changed the delay
+	\caption{Shows height tests, cone test zoomed on 10-150ns, can see height test changed the delay, each configure is plotted on different plots below
 \label{Fig:} }
 	\end{center}
 \end{figure}
@@ -251,51 +224,25 @@ Using TDR
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[width =\textwidth]{./reflectometry_plots/Mar28/s11all-mar28mix17set1}
-	\caption{Shows mar28 height tests, apr16, may5 cone test and test not on dish, shows bump is reflection due to surroundings.
-\label{Fig:} }
+	\caption{Shows height tests on dish, test not on dish, shows bump is reflection due to surroundings. mountain bumps ~ 60' - 80'
+\label{Fig:moutain} }
 	\end{center}
 \end{figure}
 
-May 5th stuff
-@ height 14' 6"
-mountain bumps ~ 60' - 80'
-Dish without cone, with screen
-set1- set2: measurements without cone, 2 metal sheets covering the entrace to the dish, covering panel A, B
-set5- set6: measurements with cone, 2 metal sheets covering the entrance to the dish, covering panel A, B
 
-\begin{figure}[H]
-	\begin{center}
-	\includegraphics[width =\textwidth]{./reflectometry_plots/May5/set1vsset3zoom}
-	\caption{CONFIG 1
-\label{Fig:} }
-	\end{center}
-\end{figure}
-=====
-
-April 16
-@ 14'3" 
-$no_cone1$ = containing data taken without cone with 1 metal sheet
-@14'6"
-set3- set4: measuremnets with cone, 1 metal sheet covering the entrance to the dish, covering panel A
-\begin{figure}[H]
-	\begin{center}
-	\includegraphics[width =\textwidth]{reflectometry_plots/May5/nocone_vs_set3zoom}
-	\caption{CONFIG 2
-\label{Fig:} }
-	\end{center}
-\end{figure}
+results@ height 14' 6"
+Dish with and without cone, with screen covering panel A, B
 
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[width =\textwidth]{reflectometry_plots/May5/S11_1st2nd_refl}
-	\caption{Shows cone VS no cone, combine 2 plots above, apparent difference cone make, but needs redesign for better backlobe minimization as seen from ~48ns.
-\label{Fig:} }
+	\caption{Shows cone VS no cone, combine 2 plots above, apparent difference cone make, but needs redesign for better backlobe minimization as seen from ~45ns.
+\label{Fig:conetest} }
 	\end{center}
 \end{figure}
 
 ========
 dish different heights
-Mar 28
 h1 = 67"
 h2 = 10'3.5"
 h3 = 14'0.5"
@@ -303,15 +250,15 @@ h3 = 14'0.5"
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[width =\textwidth]{reflectometry_plots/Mar28/height_test_zoom}
-	\caption{height test zoomed
-\label{Fig:} }
+	\caption{height test showing delay depending on feed height
+\label{Fig:height_test} }
 	\end{center}
 \end{figure}
 
 
 
 \subsection{Cone test}
-$\>$ show May 5th cone helped on reduce backlobe, see section \ref{label:reflect}
+show May 5th cone helped on reduce backlobe, see Figure \ref{Fig:conetest}
 
 \subsection{RFI investigation}
 Replacing the passive balun by the PAPER active balun and mating board, $75 \Omega$ cables are fed into the receiver, and the receiver outputs $50\Omega$ through the LMR 400 cables to the Agilent E4407B spectrum analyzer. 401 points, 100MHz - 200MHz, average by xx measurements, sweep time is xx ms, bandwidth resolution is xx kHz.
@@ -322,10 +269,11 @@ What are the gains for the balun, the receiver?
 	\begin{center}
 	\includegraphics[width =\textwidth]{empty}
 	\caption{SHOW SPECTRUm ANALYZER 100MHz - 200 MHz plot, radio stations, VHF showed up
-\label{Fig:} }
+\label{Fig:RFI} }
 	\end{center}
 \end{figure}
 
+VHF list, see bmail (FM 100-200MHZ), see if any matches
 
 \subsection{How well did we place everything}
 Resurvery the center for hub after telephone poles were stabilized in the ground. The telephone poles have varying diamater and along the length. 
