@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  19 MAY 2014 17:15
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013) (format=pdflatex 2013.5.30)  30 MAY 2014 00:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -185,7 +185,44 @@ Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
 \rot@float@box=\box34
 \rot@mess@toks=\toks23
 )
-(./hera_dish.aux)
+(./hera_dish.aux
+
+LaTeX Warning: Label `Fig:' multiply defined.
+
+
+LaTeX Warning: Label `Fig:' multiply defined.
+
+
+LaTeX Warning: Label `Fig:' multiply defined.
+
+
+LaTeX Warning: Label `Fig:' multiply defined.
+
+
+LaTeX Warning: Label `Fig:' multiply defined.
+
+
+LaTeX Warning: Label `Fig:' multiply defined.
+
+
+LaTeX Warning: Label `Fig:' multiply defined.
+
+
+LaTeX Warning: Label `Fig:' multiply defined.
+
+
+LaTeX Warning: Label `Fig:' multiply defined.
+
+
+LaTeX Warning: Label `Fig:' multiply defined.
+
+
+LaTeX Warning: Label `Fig:' multiply defined.
+
+
+LaTeX Warning: Label `Fig:' multiply defined.
+
+)
 \openout1 = `hera_dish.aux'.
 
 LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 24.
@@ -200,8 +237,7 @@ LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
 LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 24.
 LaTeX Font Info:    ... okay on input line 24.
-
-(/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
+ (/usr/local/texlive/2013/texmf-dist/tex/context/base/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count110
 \scratchdimen=\dimen124
@@ -284,383 +320,138 @@ LaTeX Font Info:    Try loading font information for U+msb on input line 65.
 (/usr/local/texlive/2013/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
+<empty.jpg, id=1, 2007.5pt x 1606.0pt>
+File: empty.jpg Graphic file (type jpg)
+ <use empty.jpg>
+Package pdftex.def Info: empty.jpg used on input line 86.
+(pdftex.def)             Requested size: 469.75499pt x 375.7927pt.
+File: empty.jpg Graphic file (type jpg)
+ <use empty.jpg>
+Package pdftex.def Info: empty.jpg used on input line 96.
+(pdftex.def)             Requested size: 469.75499pt x 375.7927pt.
+File: empty.jpg Graphic file (type jpg)
 
-! LaTeX Error: File `' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.86 	\includegraphics[width =\textwidth]{}
-                                           
-? ?
-Type <return> to proceed, S to scroll future error messages,
-R to run without stopping, Q to run quietly,
-I to insert something, E to edit your file,
-1 or ... or 9 to ignore the next 1 to 9 tokens of input,
-H for help, X to quit.
-? 
-
-! LaTeX Error: File `' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.96 	\includegraphics[width =\textwidth]{}
-                                           
-? 
-[1
+<use empty.jpg>
+Package pdftex.def Info: empty.jpg used on input line 108.
+(pdftex.def)             Requested size: 469.75499pt x 375.7927pt.
+ [1
 
 {/usr/local/texlive/2013/texmf-var/fonts/map/pdftex/updmap/pdftex.map}]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.110 ...materials, PVC selection -> construction_
-                                                  journal.tex
-? 
+<./dish_plots/Beampatterns_cone.png, id=13, 1038.7608pt x 903.375pt>
+File: ./dish_plots/Beampatterns_cone.png Graphic file (type png)
 
-! LaTeX Error: Command \item invalid in math mode.
+<use ./dish_plots/Beampatterns_cone.png>
+Package pdftex.def Info: ./dish_plots/Beampatterns_cone.png used on input line 
+146.
+(pdftex.def)             Requested size: 469.75499pt x 408.52751pt.
+ [2] [3]
+File: empty.jpg Graphic file (type jpg)
+ <use empty.jpg>
+Package pdftex.def Info: empty.jpg used on input line 215.
+(pdftex.def)             Requested size: 469.75499pt x 375.7927pt.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.111 \item
-            design lifetime (wood, PVC)
-? 
+<./reflectometry_plots/configcompare.png, id=24, 1065.9825pt x 650.43pt>
+File: ./reflectometry_plots/configcompare.png Graphic file (type png)
 
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.111 \item d
-             esign lifetime (wood, PVC)
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.111 \item d
-             esign lifetime (wood, PVC)
-? 
-
-! LaTeX Error: Command \end{itemize} invalid in math mode.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.112 \end{itemize}
-                   
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.112 \end{itemize}
-                   
-? 
-
-! LaTeX Error: Something's wrong--perhaps a missing \item.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.112 \end{itemize}
-                   
-? 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.112 \end{itemize}
-                   
-? 
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ™ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ™ in font cmr10!
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 163--164
-
- []
-
-
-Overfull \hbox (5.82928pt too wide) in paragraph at lines 170--172
-\OT1/cmr/m/n/10.95 each po-lar-iza-tion (for TDR), 50$
-$ ca-bles with SMA con-nec-tors. LMR400 spec (LMR400dataspec.pdf)
- []
-
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ™ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ™ in font cmr10!
-! Misplaced alignment tab character &.
-l.193 ...ttaching the various Short, Open, Load, &
-                                                   Thru standards to your ca...
-
-? q
-OK, entering \batchmode...
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ™ in font cmr10!
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ™ in font cmr10!
- [3]
-Missing character: There is no â in font cmr10!
-Missing character: There is no € in font cmr10!
-Missing character: There is no ™ in font cmr10!
-! Missing $ inserted.
-<inserted text> 
-                $
-l.204 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Display math should end with $$.
-<to be read again> 
-                   \par 
-l.204 
-      
-The `$' that I just saw supposedly matches a previous `$$'.
-So I shall assume that you typed `$$' both times.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.221 no_
-         cone1 = containing data taken without cone with 1 metal sheet
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.224 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
+<use ./reflectometry_plots/configcompare.png>
+Package pdftex.def Info: ./reflectometry_plots/configcompare.png used on input 
+line 238.
+(pdftex.def)             Requested size: 469.75499pt x 286.62677pt.
  [4]
-! Missing $ inserted.
-<inserted text> 
-                $
-l.241 window_
-             test.py
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.242 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-! LaTeX Error: File `' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.245 	\includegraphics[width =\textwidth]{}
-                                            
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-<reflectometry_plots/configcompare.png, id=22, 1065.9825pt x 650.43pt>
-File: reflectometry_plots/configcompare.png Graphic file (type png)
- <use reflectometry_plots/configcompare.png>
-Package pdftex.def Info: reflectometry_plots/configcompare.png used on input li
-ne 268.
+<./reflectometry_plots/configcompare10-150ns.png, id=28, 1065.9825pt x 650.43pt
+>
+File: ./reflectometry_plots/configcompare10-150ns.png Graphic file (type png)
+ <use ./reflectometry_plots/configcompare10-150ns.png>
+Package pdftex.def Info: ./reflectometry_plots/configcompare10-150ns.png used o
+n input line 245.
 (pdftex.def)             Requested size: 469.75499pt x 286.62677pt.
 
-<reflectometry_plots/configcompare10-150ns.png, id=24, 1065.9825pt x 650.43pt>
-File: reflectometry_plots/configcompare10-150ns.png Graphic file (type png)
- <use reflectometry_plots/configcompare10-150ns.png>
-Package pdftex.def Info: reflectometry_plots/configcompare10-150ns.png used on 
-input line 275.
-(pdftex.def)             Requested size: 469.75499pt x 286.62677pt.
-
-<reflectometry_plots/Mar28/s11all-mar28mix17set1.png, id=25, 1214.8587pt x 650.
-43pt>
-File: reflectometry_plots/Mar28/s11all-mar28mix17set1.png Graphic file (type pn
-g)
-
-<use reflectometry_plots/Mar28/s11all-mar28mix17set1.png>
-Package pdftex.def Info: reflectometry_plots/Mar28/s11all-mar28mix17set1.png us
-ed on input line 283.
+<./reflectometry_plots/Mar28/s11all-mar28mix17set1.png, id=29, 1214.8587pt x 65
+0.43pt>
+File: ./reflectometry_plots/Mar28/s11all-mar28mix17set1.png Graphic file (type 
+png)
+ <use ./reflectometry_plots/Mar28/s11all-mar28mix17set1.png>
+Package pdftex.def Info: ./reflectometry_plots/Mar28/s11all-mar28mix17set1.png 
+used on input line 253.
 (pdftex.def)             Requested size: 469.75499pt x 251.50308pt.
 
-! LaTeX Error: File `reflectometry/May5/set1vsset3zoom' not found.
+<./reflectometry_plots/May5/set1vsset3zoom.png, id=30, 1063.0917pt x 650.43pt>
+File: ./reflectometry_plots/May5/set1vsset3zoom.png Graphic file (type png)
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.299 ...width]{reflectometry/May5/set1vsset3zoom}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
+<use ./reflectometry_plots/May5/set1vsset3zoom.png>
+Package pdftex.def Info: ./reflectometry_plots/May5/set1vsset3zoom.png used on 
+input line 268.
+(pdftex.def)             Requested size: 469.75499pt x 287.41083pt.
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.308 no_
-         cone1 = containing data taken without cone with 1 metal sheet
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
+<reflectometry_plots/May5/nocone_vs_set3zoom.png, id=31, 1017.5616pt x 650.43pt
+>
+File: reflectometry_plots/May5/nocone_vs_set3zoom.png Graphic file (type png)
+ <use reflectometry_plots/May5/nocone_vs_set3zoom.png>
+Package pdftex.def Info: reflectometry_plots/May5/nocone_vs_set3zoom.png used o
+n input line 282.
+(pdftex.def)             Requested size: 469.75499pt x 300.2733pt.
 
+<reflectometry_plots/May5/S11_1st2nd_refl.png, id=32, 1065.9825pt x 650.43pt>
+File: reflectometry_plots/May5/S11_1st2nd_refl.png Graphic file (type png)
 
-! LaTeX Error: Not in outer par mode.
+<use reflectometry_plots/May5/S11_1st2nd_refl.png>
+Package pdftex.def Info: reflectometry_plots/May5/S11_1st2nd_refl.png used on i
+nput line 290.
+(pdftex.def)             Requested size: 469.75499pt x 286.62677pt.
 
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.311 \begin{figure}[H]
-                       
-You've lost some text.  Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Undefined control sequence.
-\@xfloat ...@fltovf \fi \global \setbox \@currbox 
-                                                  \color@vbox \normalcolor \...
-l.311 \begin{figure}[H]
-                       
-The control sequence at the end of the top line
-of your error message was never \def'ed. If you have
-misspelled it (e.g., `\hobx'), type `I' and the correct
-spelling (e.g., `I\hbox'). Otherwise just continue,
-and I'll forget about whatever was undefined.
-
-! Missing number, treated as zero.
-<to be read again> 
-                   \vbox 
-l.311 \begin{figure}[H]
-                       
-A number should have been here; I inserted `0'.
-(If you can't figure out why I needed to see a number,
-look up `weird error' in the index to The TeXbook.)
-
-
-! LaTeX Error: File `reflectometry/May5/nocone_vs_set3zoom' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.313 ...h]{reflectometry/May5/nocone_vs_set3zoom}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.318 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-
-! LaTeX Error: File `reflectometry/May5/S11_1st2nd_refl' not found.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.321 ...idth]{reflectometry/May5/S11_1st2nd_refl}
-                                                  
-I could not locate the file with any of these extensions:
-.png,.pdf,.jpg,.mps,.jpeg,.jbig2,.jb2,.PNG,.PDF,.JPG,.JPEG,.JBIG2,.JB2,.eps
-Try typing  <return>  to proceed.
-If that doesn't work, type  X <return>  to quit.
-
-
-<reflectometry_plots/Mar28/height_test_zoom.png, id=26, 1027.6794pt x 648.9846p
+<reflectometry_plots/Mar28/height_test_zoom.png, id=33, 1027.6794pt x 648.9846p
 t>
 File: reflectometry_plots/Mar28/height_test_zoom.png Graphic file (type png)
  <use reflectometry_plots/Mar28/height_test_zoom.png>
 Package pdftex.def Info: reflectometry_plots/Mar28/height_test_zoom.png used on
- input line 336.
+ input line 305.
 (pdftex.def)             Requested size: 469.75499pt x 296.65503pt.
 
-LaTeX Warning: Reference `label:reflect' on page 5 undefined on input line 344.
+
+LaTeX Warning: Reference `label:reflect' on page 5 undefined on input line 314.
 
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.347 >See contruction_
-                       journal
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.348 
-      
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
+File: empty.jpg Graphic file (type jpg)
+<use empty.jpg>
+Package pdftex.def Info: empty.jpg used on input line 323.
+(pdftex.def)             Requested size: 469.75499pt x 375.7927pt.
  [5]
 No file hera_dish.bbl.
- [6] [7 <./reflectometry_plots/configcompare.png>] [8 <./reflectometry_plots/co
-nfigcompare10-150ns.png>] [9 <./reflectometry_plots/Mar28/s11all-mar28mix17set1
-.png>] [10 <./reflectometry_plots/Mar28/height_test_zoom.png>] (./hera_dish.aux
-)
+[6] [7 <./empty.jpg>] [8] [9] [10 <./dish_plots/Beampatterns_cone.png>]
+[11] [12 <./reflectometry_plots/configcompare.png>] [13 <./reflectometry_plots/
+configcompare10-150ns.png>] [14 <./reflectometry_plots/Mar28/s11all-mar28mix17s
+et1.png>] [15 <./reflectometry_plots/May5/set1vsset3zoom.png>] [16 <./reflectom
+etry_plots/May5/nocone_vs_set3zoom.png>] [17 <./reflectometry_plots/May5/S11_1s
+t2nd_refl.png>] [18 <./reflectometry_plots/Mar28/height_test_zoom.png>]
+[19] (./hera_dish.aux)
 
 LaTeX Warning: There were undefined references.
 
 
-LaTeX Warning: Label(s) may have changed. Rerun to get cross-references right.
+LaTeX Warning: There were multiply-defined labels.
 
  ) 
 Here is how much of TeX's memory you used:
- 3472 strings out of 493315
- 44932 string characters out of 6137904
- 109968 words of memory out of 5000000
- 6848 multiletter control sequences out of 15000+600000
+ 3485 strings out of 493315
+ 45830 string characters out of 6137904
+ 111017 words of memory out of 5000000
+ 6868 multiletter control sequences out of 15000+600000
  9519 words of font info for 38 fonts, out of 8000000 for 9000
  957 hyphenation exceptions out of 8191
- 38i,6n,28p,782b,272s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,7n,28p,716b,274s stack positions out of 5000i,500n,10000p,200000b,80000s
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx10.pfb
 ></usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb>
 </usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb><
 /usr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></u
 sr/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr
-/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/
-local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
-Output written on hera_dish.pdf (10 pages, 954234 bytes).
+/local/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/lo
+cal/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/loc
+al/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local
+/texlive/2013/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb>
+Output written on hera_dish.pdf (19 pages, 2411099 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
- 46 compressed objects within 1 object stream
+ 120 PDF objects out of 1000 (max. 8388607)
+ 72 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 46 words of extra memory for PDF output out of 10000 (max. 10000000)
 
