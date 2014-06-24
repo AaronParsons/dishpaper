@@ -80,6 +80,14 @@
 \label{sec:design}
 
 \subsection{bent pipes as approximation to parabola}
+The construction method is based on the use of a reasonably stiff spar supported at a few points as a low-pass spatial filter.  Additionally, a moment-loaded beam naturally attains a parabolic shape, depending on the loading, the moment of intertia and the material's Young's modulus (see {\em e.g.} http://ruina.tam.cornell.edu/ Courses/~ME4730/ Rand4770 Vibrations/ BeamFormulas.pdf).  In this instance we fix the angle at the rim ($r_e$) of 7m and at a hub radius ($r_h$) of about 45 cm, so between those two points, the effective angle is $(r_e-r_h)/(2F)$, where $F$ is the focal length (4.5m).  Equating that angle to the angle of the cantilevered beam (using scenario 5 of the web-site) we find
+\begin{equation}
+y = \left(\frac{r_e-r_h}{L}\right)\frac{x^2}{4F}
+\end{equation}
+where $L$ is the length of the beam.
+Assuming, $(r_e-r_h) \approx L$ (in this case, the ratio is 0.91) we find we have the equation for our desired parabola.  Note that we do not contend that this figure over the entire length of the actual beam achieves this, but merely that if properly held and loaded it tends to the right shape.
+
+In our construction, we hold the spar at three locations at the proper location and angle and then rely on the fairly stiff spar to "filter" out any higher frequency ripples and on the physics to give us the overall general shape.
 
 \begin{figure}[H]
 	\begin{center}
@@ -89,8 +97,6 @@
 	\end{center}
 \end{figure}
 
-
-\subsection{faceting}
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[width =\textwidth]{empty}
@@ -99,7 +105,21 @@
 	\end{center}
 \end{figure}
 
-\subsection{sheiding}
+\subsection{faceting}
+The construction of the surface stretches mesh panels over adjacent spars, so the surface is not a true paraboloid but rather a faceted parabola, although note that the construction does pull down the mesh mid-panel to both better approximate a paraboloid as well as to hold the mesh.
+
+If we assume an actual faceted parabola ({\em i.e.} the mesh if perfectly flat between adjacent spars) we can calculate the rms deviation from a paraboloid for various spar configurations.  For this antenna, we chose 12 spars out to 1.45m, then transitioning to 24 spars.  Choosing just 12 spars all the way out to the rim yields an rms of 6.9cm (corresponding to a Ruze loss of almost 18\% at 150 MHz), as opposed to 1.7cm (for about 1 \% loss).
+
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =0.4\textwidth]{dish_plots/12spar.png}
+	\includegraphics[width = 0.4\textwidth]{dish_plots/special_spar.png}
+	\caption{Contour plots of the facet deviations from a paraboloid for 12 spars (left) and the 12-to-24 spar design (right).
+\label{Fig:facets} }
+	\end{center}
+\end{figure}
+
+\subsection{shielding}
 The panels across the dish surface are made out of 6 different dimensions of galvanized wire cloth $\frac{1}{4}$"; employing different dimensions at different heights to reduce the surface bumps produced during installation.
 
 \subsection{splash cone}
