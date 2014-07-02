@@ -97,6 +97,7 @@ In our construction, we hold the spar at three locations at the proper location 
 \label{Fig:} }
 	\end{center}
 \end{figure}
+\clearpage
 
 \begin{figure}[H]
 	\begin{center}
@@ -105,6 +106,7 @@ In our construction, we hold the spar at three locations at the proper location 
 \label{Fig:} }
 	\end{center}
 \end{figure}
+\clearpage
 
 \subsection{faceting}
 The construction of the surface stretches mesh panels over adjacent spars, so the surface is not a true paraboloid but rather a faceted parabola, although note that the construction does pull down the mesh mid-panel to both better approximate a paraboloid as well as to hold the mesh.
@@ -119,6 +121,7 @@ If we assume an actual faceted parabola ({\em i.e.} the mesh if perfectly flat b
 \label{Fig:facets} }
 	\end{center}
 \end{figure}
+\clearpage
 
 \subsection{shielding}
 The panels across the dish surface are made out of 6 different dimensions of galvanized wire cloth $\frac{1}{4}$"; employing different dimensions at different heights to reduce the surface bumps produced during installation.
@@ -131,6 +134,7 @@ The panels across the dish surface are made out of 6 different dimensions of gal
 \label{Fig:splashcone} }
 	\end{center}
 \end{figure}
+\clearpage
 
 \subsection{hub}
 The central hub has an overall diameter of 37", the inner sono tube has an interior diamater of 18", the outer sono tube has an interior diameter of 36". The launch angle of the spar sleeves is $+2.86^{\circ}$ from the inner sono tube to the outer sono tube, the supporting sleeves (botton sleeves) do not have any launch angles.
@@ -169,6 +173,7 @@ The dish structure is made out of schedule 40, white PVCs to minimize the bendin
 \label{Fig:} }
 	\end{center}
 \end{figure}
+\clearpage
 
 \begin{itemize}
 \item beam pattern
@@ -186,66 +191,167 @@ The dish structure is made out of schedule 40, white PVCs to minimize the bendin
 
 \section{Time Domain Reflectometry}
 \label{sec:reflect}
-With the use of a vector network analyzer(VNA), time domain reflectometry is a technique that measures the magnitude and phase of a reflected signal (S-parameter) as function of time and frequency. The return loss of the reflection is dependent on the impedance of the device under test. The network analyzer provides
- a frequency swept signal and the inverse Fourier transform is then performed to produce reflection parameter measurements as a function of time.
+With the use of a vector network analyzer (VNA), time domain reflectometry is a
+technique that measures the magnitude and phase of a reflected signal, often 
+referred to as S-parameter as function of time and frequency. The return loss 
+of the reflection is dependent on the impedance of the device under test (DUT). The 
+network analyzer provides a frequency swept signal and the inverse Fourier 
+transform is then performed to produce reflection parameter measurements as a 
+function of time.
 
-When the VNA measures the S-parameters in the frequency domain, the data is measured across a pre-defined frequency range and stored at discrete points across this span. The frequency spacing between data points is proportional to the frequency span and inversely proportional to the total number of data points as shown in the following equation:
+S-parameter stands for "scattering parameters", the term is widely used to describe a device 
+under test at any distance in network measurements provided that the transmission cable used 
+is lossless, the magnitude remains constant when propagating down the cable. $S_{ii}$ is 
+analogue to optical reflection coefficient, and $S_{ij}$ is analogue to optical transmission 
+coefficient.
+
+In a two port network that was used in the dish test, the incident wave ($a_1$, 
+$a_2$) are independent variables, and the reflected waves ($b_1$, $b_2$) are 
+the dependent variables used to define the S-paramters. $a_i$ and $b_i$ of the $i^{th}$ port is 
+related to the temrinal voltage $V_i$, the terminal current $I_i$ and a reference impedance 
+$Z_0$ as follows:
+
+\begin{align}
+a_i &= \frac{V_i+Z_iI_i}{2\sqrt{|{Re Z_i}|}}  \\
+b_i &= \frac{V_i+Z_i^{*}I_i}{2\sqrt{|{Re Z_i}|}}
+\label{Eqn:ab}
+\end{align}
+\noindent and in terms of $V_{inc-i}$ voltage incident on and $V_{ref-i}$ voltage reflected from port $i$ as follows:
+\begin{align}
+a_i &= \frac{V_{inc-i}}{\sqrt{Z_0}} \\
+b_i &= \frac{V_{ref-i}}{\sqrt{Z_0}}.
+\end{align}
+
+The relationship between the reflected and incident power at each port of a network can be described linearly as:
+\begin{align}
+b_1 &= S_{11}a_1 + S_{12}a_2 \\
+b_2 &= S_{21}a_1 + S_{22}a_2
+\end{align}
+and in matrix representation: 
+\begin{align}
+\left( \begin{array}{c} b_1 \\ b_2\end{array}\right) = 
+\begin{pmatrix} S_{11} & S_{12} \\ S_{21} & S_{22} \end{pmatrix} \times
+\left( \begin{array}{c} a_1 \\ a_2\end{array}\right)
+\end{align}
+
+When considering the incident power at port 1, the power can either be reflected on the same port as $b_1$ or be transmitted through port 2 as $b_2$. When the output port (port 2) is terminated with a matched load, $S_{11}$ becomes:
+\begin{align}
+S_{11} &= \frac{b_1}{a_1}|_{a_{2}=0} \nonumber \\
+& = \frac{  \frac{V_1}{I_1}-Z_0 }  {\frac{V_1}{I_1}+Z_0   } \nonumber \\
+& = \frac{Z_1-Z_0}{Z_1+Z_0} \nonumber \\
+S_{21} &= \frac{b_2}{a_1}|_{a_{2}=0} 
+\end{align}
+
+$S_{11}$, $S_{22}$ are the input and output reflection coefficient 
+respectively, hence they are a measure of the input and output mismatch loss. $
+|S_{11}|^2$ is the ratio of the reflected power from versus the
+incident power on the input port, $|S_{22}|^2$ is the ratio of that of the 
+output port. $S_{21}$ measures the forward transmission a.k.a the voltage gain 
+and $S_{12}$ measures the reverse transmission a.k.a the voltage gain. The 
+square of $S_{21}$ is the ratio of power delivered to a load with impedance $Z_0
+$ versus power avaialble from source with $Z_0$.  Hence $S_{12}$ and $S_{21}$ 
+are a measure of the insertion gain.
+
+TDR measurements are often related to the reflection coefficient $\Gamma$ [-1, 1] and the 
+voltage standing wave ratio (VSWR), by definition:
 \begin{equation}
-\Delta f = \frac{frequency\ span}{number\ of\ points}.
+\Gamma = \frac{V_{reflected}}{V_{incident}} 
 \end{equation}
 
-The resolution in time by doing a inverse Fourier transform of the data in frequency is inversely proportional to the frequency resolution:
-\begin{equation}
-\Delta t = \frac{1}{\Delta f}.
-\label{Eqn:res}
-\end{equation}
-Time domain reflectometry(TDR) is carried out with the feed as the device under test after the mesh panels are installed. In this application, time domain reflectometry measures the reflections on the dish as a function of time as a result of impedance mistmatch between the feed electronics and the sky signal. The characteristic impedance of the output signal from the feed generated from the vector network analyzer and transmission coaxial cable is $50 \Omega$. With the use of a 4:1 passive balun at each polarization, the signal at the feed has a characteristic impedance of $200\Omega$ and that of the free space is $120\pi\Omega$. 
+\begin{align}
+VSWR & = \frac{E_{max}}{E_{min}} \nonumber \\
+&	 = \frac{1+\Gamma}{1-\Gamma}
+\end{align}
+where $E_{max}$ and $E_{min}$ are in reference to the envelop of the travelling 
+wave. 
+
+-----citation----- of S- stuff
+
+When the VNA measures the S-parameters in the frequency domain, the data is 
+measured across a pre-defined frequency range and stored at discrete points 
+across this span. The frequency spacing between data points is proportional to 
+the frequency span and inversely proportional to the total number of data points
+.
+
+Time domain reflectometry (TDR) is carried out with the feed as the device 
+under test after the mesh panels are installed. In this application, time 
+domain reflectometry measures the reflections on the dish as a function of time 
+as a result of impedance mistmatch between the feed electronics and the sky 
+signal. The characteristic impedance of the output signal from the vector network analyzer and transmission coaxial cable is $50\Omega$. The impedance in free space is $120\pi\Omega$, with the use of a 4:1 passive balun at each polarization, the signal through the balun at the reference plane should have a characteristic impedance of $30\pi\Omega$. In practice, a third impedance in the system comes from the PAPER feed element itself and is simulated as $\sim130\Omega$. In effect, the test has two devices under test in the network.
 
 Each polarization is connected to a port on the vector network analyzer, the time axis represent the physical distance as the signals propagate along the transmission cables. The physical distance of can be related to the time axis using:
 \begin{equation}
 D = \frac{t}{2}v_{fac}c,
 \end{equation}
+
 $t$ is the round trip travel time as recorded as the time data.
-The VNA is calibrated at the end of the cables connecting the baluns, hence the velocity factor in the measurements can be taken as $1$, resulting the speed of propgation to be the speed of light $c$. As a rule of thumb,  $1$ ns is equivalent to $1$ ft in free space from the passive baluns. The expected reflection from simulation and mathematical derivation is -$60$dB by $2$ reflections between the focal point and the vertex. The designed focal length of the dish is $4.5$m, $2$ times of reflection (i.e. $4$ crossings attenuation) corresponds to $59.0$ ns in time domain.
+The VNA is calibrated at the end of the cables connecting the baluns, hence the 
+velocity factor in the measurements can be taken as $1$, resulting the speed of 
+propagation to be the speed of light $c$, thereby $1$ ns is equivalent to $29.98$ cm in free space and approximately $1$ ft from the passive baluns.
+
+The expected reflection from simulation and mathematical derivation is -$60$dB by $2$ reflections between the focal point and the vertex. The designed focal length of the dish is $4.5$m, $2$ times of reflection (i.e. $4$ crossings attenuation) corresponds to $59.0$ ns in time domain.
+
 \subsection{Choice of Hardware}
-The same feed as PAPER is used in this prototype , consisting a half-wavelength dipole for each polarization and a 4:1 passive balun is attached to the dipole through a mating board for each polarization. The other end of the $50\Omega$ coaxial cables connect the baluns to the ports of a VNA for time domain reflectometry. The LMR400 coaxial cables of length 10 m has a signal attenuation of $\sim$0.5 dB over 10 m at 150 MHz. The Aglient ES8753A is being used as the VNA to carry out the TDR measurements, the system dynamic range is 100 dB at 16 MHz to 3 GHz and the directivity is 55 dB at 300 kHz - 1.3 GHz, where the frequency range of interest is 50 MHz - 1 GHz. 
+---cite 2010 8 station PAPER paper----
+
+The same feed used in PAPER is used in this prototype , consisting a half-wavelength dipole for each polarization and a 4:1 passive balun is attached to the dipole through a mating board for each polarization. The other end of the $50\Omega$ coaxial cables connect the baluns to the ports of a VNA for time domain reflectometry. The LMR400 coaxial cables of length 10 m has a signal attenuation of $\sim$0.5 dB over 10 m at 150 MHz. The Aglient ES8753A is being used as the VNA to carry out the TDR measurements, the system dynamic range is 100 dB at 16 MHz to 3 GHz and the directivity is 55 dB at 300 kHz - 1.3 GHz, where the frequency range of interest is 50 MHz - 1 GHz. 
 
 \subsection{Calibration of VNA}
 Calibration is performed prior to taking measurements to eliminate the systematic effects caused by cables, adapters, and connectors. Performing calibration at the end of the cables shifts the reference plane to the SMA connectors of the cables that are connecting the baluns with zero phase, zero loss and zero mistmatch; as such, the measurements taken are showing only the effects of the feed and baluns under different configurations. The full two port calibration is done by attaching the calibration standards (SHORT, OPEN, LOAD, and THROUGH) to the end of the $50\Omega$ cables, the VNA calculates the correction coefficients and applies the coefficients subsequently to each measurements. The calibration coefficients includes offset delay, capacitance in the form of a fourth order polynomial, inductance as a fourth order polynomial, offset loss as resistance per second, and offset characteristic impedance. 
 
-A SHORT standard calculates the offset delay, offset loss, and specifies the inductance coefficients $L_0$ through $L_3$ to model the phase shift caused by the residual inductance in the standard as a function of frequency by fitting a forth order polynomial. An OPEN standard calculates offset delay, offset loss, and specifies the capacitance coefficients $C_{0}$ through $C_{3}$ to model the phase shift due to fringing capacitance as a function of frequency by fitting a forth order polynomial. The offset delay is the one way propagation time that can be obtained from speed of light in free space, the physical length and the permittivity constant of the cable material; the offset loss is caused by the skin effect of offset coaxial type standards. During the calibration process, the SHORT standard and OPEN standard are off by $180^\circ$; the reflection coefficients should be $1$ (0 dB) at $0^\circ$, and $1$ at $180^\circ$ at all frequencies for OPEN standard and an ideal zero-length short respectively. A perfect LOAD standard should have a reflection coefficient of $0$ as the characteristic impedance $Z_o$ matches the specfied impedance on the network analyzer. The effect and its significance is shown in Figure \ref{Fig:calibration}. 
+The effect and significance of such calibration is shown in Figure \ref{Fig:calibration}. The blue 
+curve shows that without calibration, systematic errors 
+cause the response function to vary over frequencies when the end of the cables 
+is opened, the red curve shows that with calibration, the 
+measurements are what one would expect. In theory, $S_{ii}$ of the $i^{th}$ should be $0$ dB and independent of frequency; zero return loss measured in dB corresponds to $\Gamma$ being $1$, no power was being transmitted, which is measured in the caibrated red curve. 
 
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[width =\textwidth]{./reflectometry_plots/Calibration_open}
-	\caption{The reflection and tramission paramters of the full 2-ports are plotted as a function of frequency to show the significance of applying standard calibrations prior to taking measurements. The blue curves represent the uncalibrated results, and the red curves represent the calibrated results of open ends at the far end of the cables that are connected to the network analyzer. }
+	\caption{The reflection and tramission parameters of the full 2-ports are plotted as a function of frequency to show the significance of applying standard calibrations prior to taking measurements. The blue curves represent the uncalibrated results, and the red curves represent the calibrated results when the far cable ends were not terminated. The calibrated result shows a constant $0$ dB over frequency as predicted.}
 \label{Fig:calibration} 
 	\end{center}
 \end{figure}
 \clearpage
+
+A SHORT standard calculates the offset delay, offset loss, and specifies the inductance coefficients $L_0$ through $L_3$ to model the phase shift caused by the residual inductance in the standard as a function of frequency by fitting a forth order polynomial. An OPEN standard calculates offset delay, offset loss, and specifies the capacitance coefficients $C_{0}$ through $C_{3}$ to model the phase shift due to fringing capacitance as a function of frequency by fitting a forth order polynomial. The offset delay is the one way propagation time that can be obtained from speed of light in free space, the physical length and the permittivity constant of the cable material; the offset loss as a function of frequency is caused by the skin effect of offset coaxial type standards. During the calibration process, the SHORT standard and OPEN standard are off by $180^\circ$; the reflection coefficients should be $1$ (0 dB) at $0^\circ$, and $1$ at $180^\circ$ at all frequencies for OPEN standard and an ideal zero-length short respectively. A perfect LOAD standard should have a reflection coefficient of $0$ as the characteristic impedance $Z_0$ matches the specfied impedance on the network analyzer. 
+
 \subsection{Configurations}
 The measurements are taken with 401 data samples between 50 MHz to 1 GHz, giving a time resolution of 1.05 ns; each set of data is averaged by 16 measurements for higher SNR. The first test being carried out is by varying the feed height above the vertex, and the second test is by placing a splash cone on the central hub centered on the vertex of the parabolic dish. The feed height test was carried out at three different heights above the dish: $67"$, $10'3.5"$, and $14'0.5"$ to verify the effect of reflection as a function of time delay which is directly related to the travelled distance of a signal and the number of crossings attenuation. The cone test was carried at a distance $14' 6"$ above the vertex to investigate the backlobes of the antenna and the effectiveness of reducing the backlobes by placing the splash cone structure as shown in Figure \ref{Fig:splashcone}.
+
 \subsection{Window Functions}
-To deal with real-life situations of a finite bandwidth which results in spectral leakage in time domain,  the Kasier-Bessel window is applied to the frequency domain data prior to performing the inverse Fourier transform in order to increase the dynamic range of the measurements in time domain by reducing the sidelobes; the disadvantage however, is the widening of the pulse width between data points hence reducing the time resolution , hence the resolution equation in Equation \ref{Eqn:res} is an approximation. As shown in Figure \ref{Fig:window}, the spectra features are emphasized by multiplying a window function to the frequency response prior to performing the inverse Fourier transform to time domain. 
+To deal with real-life situations of a finite bandwidth which results in 
+spectral leakage in time domain, a window function is applied to the frequency domain data 
+prior to performing the inverse Fourier 
+transform in order to increase the dynamic range of the measurements and minimize the effect of leakage in time 
+domain by reducing the sidelobe levels; the disadvantage however, is the 
+widening of the pulse width between data points hence reducing the time 
+resolution. 
+
+As shown in Figure \ref{Fig:windowwidth}, the spectra features are 
+emphasized by multiplying a window function to the frequency response prior to 
+performing the inverse Fourier transform to time domain. By varying the $\beta$ value of a 
+Kaiser-Bessel window or by choosing different window functions, such as the Blackman-Harris 
+window (cyan) give different side-lobe levels, as shown in the time range 200 - 300 ns. The  
+default window function used in the TDR 
+analysis throughout this document is the Blackman-Harris. The 
+strong reflection peaks to the left of 
+40 ns is caused by impedance 
+mismatch along the signal path in the connectors, the mating board, and more 
+importantly, from the impedance of the feed itself. 
+
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[width =.8\textwidth]{./reflectometry_plots/win_nowin}
-	\caption{If a window function is used to weigh the spectrum prior to performing an inverse Fourier transform, the sidelobes are reduced as shown by the green curve which is weighted by a Kaiser-Bessel window with $\beta = 4.0$ before the IFT.
-\label{Fig:window}}
-	\end{center}
-\end{figure}
-
-\clearpage
-The sidelobes can be reduced thereby increasing the dynamic range in a spectrum by varying the width or the $\beta$ value of a Kaiser-Bessel window as demonstrated by Figure \ref{Fig:windowwidth} and more discernible in the time range 200-300 ns. Some of the features are suppressed near 40 ns when $\beta = $8.6(blue) is used compared to when $\beta = $4.5(red) or $\beta = $4.0(green) is used. The strong reflection peak to the left of 40 ns is caused by impedance mismatch along the signal path in the connectors on the balun and the mating board, and a steeper roll off, hence the suppression is resulted when weighted with a larger $\beta$ value. For this reason, we employed $\beta = $4.5 in the analysis.
-
-\begin{figure}[H]
-	\begin{center}
-	\includegraphics[width =.8\textwidth]{./reflectometry_plots/window_width_variation}
-	\caption{$\beta$ values of 8.6, 4.5, and 4.0 in a Kaiser-Bessel function are applied to the frequency spectrum prior to performing the inverse Fourier Transform. Since a $\beta$ value of 8.6 suppressed some of the features as a result of the strong reflection peaks nearby, $\beta = $4.5 is used for the analysis to ensure high dynamic range as well as retaining spectrum features to be observable.
+	\includegraphics[width =.8\textwidth]{./reflectometry_plots/window_variation}
+	\caption{Spectra with different window functions applied prior to taking the inverse Fourier 
+transform is plotted against the spectrum without multiplying by any window functions. The 
+dynamic range increases as the side-lobe levels is weighted by the specified amount in a 
+function while retaining the spectrum features.
 \label{Fig:windowwidth}}
 	\end{center}
 \end{figure}
 \clearpage
+
 \begin{itemize}
 \item reflectometry 
 \item hardware 
@@ -258,74 +364,67 @@ The sidelobes can be reduced thereby increasing the dynamic range in a spectrum 
 \section{Results}
 \label{sec:results}
 \subsection{Delay Spectrum for Configurations}
+ The time axis shows the delay in nanoseconds as the signal propagates starting 
+ from the calibrated reference plane: the SMA connectors at the far ends of the cables. When the 
+signal first contact the conectors on the balun, the mating board, and the feed, the signal is not 
+masked by reflections caused by any components between the connectors and the reference 
+plane, as demonstrated by the strong reflection peaks between $0$ ns - $30$ ns. When the signal continues to propagate after the first reflection, the power is reduced from the 
+original pulse as the first impedance mismatch caused some of the power to be reflected back
+as opposite to being fully transmitted.  
 
-
-The peaks associated with signal reflections from the vertex of the parabolic dish are relatively lower than those resulting from the adapters, electronic parts and surrounding environment. 
-
-All the traces in Figure \ref{Fig:moutain} show that there are two large peaks representing the reflection from the moutains nearby, one at xxx ft another at xxx ft. Some traces in the figure are measured while the dish was not on the dish, ~ xxx ft from the dish and those two peaks resulting from the moutains shifted in time accordingly.
-
-
-\begin{figure}[H]
-	\begin{center}
-	\includegraphics[width =.7\textwidth]{./reflectometry_plots/configcompare10-150ns}
-	\caption{Shows the reflection parameter S11 plot with the height tests, cone test, can see height test changed the delay, each configure is plotted on different plots below.
-\label{Fig:} }
-	\end{center}
-\end{figure}
-
-From these measurements, the peaks associated with the connectors and surrounding enviornment are static as these components were the invariants during the measurements. 
+All the traces in Figure \ref{Fig:moutain} show that there are two large peaks representing the reflections from the moutains nearby, the black curve in the figure was measured while the feed was resting at $\sim$60 ft from the dish, and those two peaks shifted in time accordingly.
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[width =.7\textwidth]{./reflectometry_plots/Mar28/s11all-mar28mix17set1}
-	\caption{Shows height tests on dish, test not on dish, shows bump is reflection due to surroundings. mountain bumps ~ 60' - 80'
+	\caption{$S_{11}$ of the height test, performed while the feed was hanging at height : 67", 
+10'3.5", and 14'0.5" above the vertex. The black curve represents the S11 measurement as the 
+feed was located at $\sim$60 ft from the dish, hence the peaks at $\sim$260 ns and 
+$\sim$330 ns implies that they are the reflections due to surrounding moutains.
 \label{Fig:moutain} }
 	\end{center}
 \end{figure}
+\clearpage
 
-
-results@ height 14' 6"
-Dish with and without cone, with screen covering panel A, B
-
+Intuitively, the peaks associated with the connectors and surrounding environment should be 
+unshifted in time as the feed height varies, as these components were static during the 
+measurements. Figure \ref{Fig:height_test} shows the time domain response when the feed is 
+positioned at 67", 10'3.5", and 14'0.5" above the vertex, raised by 4' from the preceeding, 
+$4.5$ m is the focal length of the 14 m parabolic dish with $\frac{f}{D} = 0.32$. By $59$ ns, as 
+required in the antenna design, the $S_{11}$ is down by -$61.7$ dB excluding the reflection 
+peak caused by the mountains as shown in Figure \ref{Fig:moutain}. 
 \begin{figure}[H]
 	\begin{center}
-	\includegraphics[width =.7\textwidth]{reflectometry_plots/May5/S11_1st2nd_refl}
-	\caption{Shows cone VS no cone, combine 2 plots above, apparent difference cone make, but needs redesign for better backlobe minimization as seen from ~45ns.
-\label{Fig:conetest} }
-	\end{center}
-\end{figure}
-
-========
-dish different heights
-h1 = 67"
-h2 = 10'3.5"
-h3 = 14'0.5"
-Figure \ref{Fig:height_test} also shows the time domain response when the feed is positioned XXX above the vertex.
-There is also a noticeable increase in the peak amplitude associated with the feed when the plate is moved closer to the central hub. 
-This increase in peak amplitude is due to the reduction in space loss as the signal now propagates over a shorter distance.
-
-
-The first reflection as plotted around 20-50 ns depending on the height of the feed; as it is moved
-closer and further, the measured time domain response shows an equivalent time shift in the peak. 
-
-\begin{figure}[H]
-	\begin{center}
-	\includegraphics[width =.7\textwidth]{reflectometry_plots/Mar28/height_test_zoom}
-	\caption{height test showing delay depending on feed height
-The red curve has highest peak amplitude, followed by the green curve and lastly the blue curve, each increases by 4' of the preceeding color curve. The peak amplitude varies inversly as the height of the feed. Blue shows similar amplitude as green since blue is at the focal length of the parabolic surface.
+	\includegraphics[width =.7\textwidth]{reflectometry_plots/Mar28/mar28height-test}
+	\caption{The time domain response changes when the feed is positioned at 67", 10'3.5", 
+and 14'0.5" above the vertex. The red curve represents the response taken at height 67", this 
+curve has the highest peak amplitude, followed by the green curve, taken at height 10'3.5" and 
+lastly the blue curve, taken at height 14'0.5" (the ideal focal distance of the parabolic dish). By 
+$59$ ns, as required in the antenna design, the $S_{11}$ is down by over -$61.7$ dB excluding 
+the reflection peaks caused by the mountains.
 \label{Fig:height_test} }
 	\end{center}
 \end{figure}
-
-
+\clearpage
 
 \subsection{Cone test}
+VNA measures the time responses of when the cone is placed on the central hub 
+versus when the cone was absence as the feed was at height 14'6" in both setups. The 
+measurements in Figure \ref{Fig:conetest} show that the placement of the splash cone reduces 
+the backlobes in the response up to $\sim48$ ns, at which the power is down by -$55$ dB.
 
-
-For the case without the splash cone, shown in Figure \ref{Fig:conetest}, cone helped on reduce backlobe
-
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =.7\textwidth]{reflectometry_plots/May5/S11_cone_effect}
+	\caption{The above shows the difference in time response when the feed was at 14'6" 
+above the vertex, the vertex was covered by the splash cone versus the vertex was not covered.  
+Up to $\sim 48$ ns, the measurements suggest that the cone reduces the backlobes, and by 
+$59$ ns, the response is down by -$59.9$ dB.  
+\label{Fig:conetest} }
+	\end{center}
+\end{figure}
 \clearpage
 \subsection{RFI investigation}
-To measure the spectra of the sky with the prototype, the dipole element is connected to the PAPER active balun which amplifies the signals from both polarization by XX dB and outputs $75\Omega$ signals into the PAPER receiver which contains two 100-200MHz bandwidth filters, and outputs $50\Omega$ signals after amplification. The $50\Omega$ signals travel along the LMR 400 cables to the Agilent E4407B spectrum analyzer. The spectra are taken with 401 data points, ranging from 100-200MHz, and 50 measurements are averaged to improve the SNR, the resolution bandwidth is specified to be 1 MHz with 0 dB attenuation, and the resulting spectra has a resolution of 0.25 MHz.
+To measure the spectra of the sky with the prototype, the dipole element is connected to the PAPER active balun which amplifies the signals from both polarizations by XX dB and outputs $75\Omega$ signals into the PAPER receiver which contains two 100-200MHz bandwidth filters, and outputs $50\Omega$ signals after amplification. The $50\Omega$ signals travel along the LMR 400 cables to the Agilent E4407B spectrum analyzer. The spectra are taken with 401 data points, ranging from $100$ - $200$ MHz, and 50 measurements are averaged to improve the SNR, the resolution bandwidth is specified to be 1 MHz with 0 dB attenuation, and the resulting spectra has a resolution of 0.25 MHz.
 
 Cygnus A, a radio bright source is at right accension $19h59m28s$ and declination $+40^\circ44'02"$ and the dish is located at $+37.98^\circ$ latitude, and $-122.19^\circ$ longitude. Cygnus A, hence is an ideal source for the sky test as it transits at night time during the summer when observations are carried out. Three spectra shown in Figure \ref{Fig:RFI} are taken at different times in a day: daytime, before and during the transit of Cygnus A in our beam during the nighttime.
 
@@ -336,31 +435,33 @@ Cygnus A, a radio bright source is at right accension $19h59m28s$ and declinatio
 \label{Fig:RFI}}
 	\end{center}
 \end{figure}
+\clearpage
 
-Spectra in Figure \ref{Fig:narrowchannels} are taken at nighttime, approximately 4 hours before Cygnus A transits within the beam to ensure uncontaiminated frequency channels can be effiectively identified. As the resolution bandwidth is reduced from 1 MHz to 1 kHz and the averaging number of measurements is reduced to 0, channels with minimal RFIs are identified as 120-130 MHz, 155-160MHz, 165-175MHz and color plotted as green, red, and cyan respectively in Figure \ref{Fig:narrowchannel}.
+Spectra in Figure \ref{Fig:narrowchannels} are taken at nighttime, approximately 4 hours before Cygnus A transits within the beam to ensure uncontaiminated frequency channels can be effiectively identified. As the resolution bandwidth is reduced from 1 MHz to 1 kHz and the averaging number of measurements is reduced to 0, channels with minimal RFIs are identified as 120 - 130 MHz, 155 - 160MHz, 165 - 175MHz and color plotted as green, red, and cyan respectively in Figure \ref{Fig:narrowchannels}.
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[width =.8\textwidth]{spectra_plots/all_channels}
-	\caption{The narrow channels with minimal RFIs are identified as 120-130 MHz, 155-160 MHz, and 165-175 MHz. The power in dBm are lower than the spectra shown in Figure \ref{Fig:RFI} as the resolution bandwidth is reduced from 1 MHz to 1 kHz.
+	\caption{The narrow channels with minimal RFIs are identified as 120 - 130 MHz, 155 - 160 MHz, and 165 - 175 MHz. The power in dBm are lower than the spectra shown in Figure \ref{Fig:RFI} as the resolution bandwidth is reduced from 1 MHz to 1 kHz.
 \label{Fig:narrowchannels} }
 	\end{center}
 \end{figure}
 \clearpage
 
-Spectra are taken in those frequency channels every $10\pm2$ minutes throughout a night as Cygnus A rises and transits across the beam. Figure \ref{Fig:120130allnight}, and \ref{Fig:165173allnight} show that within these narrow channels that were identified according to the 100-200MHz spectra, RFIs were present occassionaly throughout the observing night; hence, narrower channels within the spectra are extracted to calculate the power as a function of altitude and local sidereal time.
+Spectra are taken in those frequency channels every $10\pm2$ minutes throughout a night as Cygnus A rises and transits across the beam. Figure \ref{Fig:120130allnight}, and \ref{Fig:165175allnight} show that within these narrow channels that were identified according to the 100-200MHz spectra, RFIs were present occassionaly throughout the observing night; hence, narrower channels within the spectra are extracted to calculate the power as a function of altitude and local sidereal time.
 
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[width =0.85\textwidth]{spectra_plots/120130allnight}
-	\caption{Here, the spectrum running from 126 MHz to 127 MHz is the quiet region within the 120-130 MHz channel that was chosen according to the 100-200MHz nighttime spectrum shown in Figure \ref{Fig:narrowchannels}.
+	\caption{Here, the spectrum running from 126 MHz to 127 MHz is the quiet region within the 120 - 130 MHz channel that was chosen according to the 100 - 200MHz nighttime spectrum shown in Figure \ref{Fig:narrowchannels}.
 \label{Fig:120130allnight} }
 	\end{center}
 \end{figure}
+\clearpage
 
 \begin{figure}[H]
 	\begin{center}
 	\includegraphics[width =0.85\textwidth]{spectra_plots/clean171173}
-	\caption{Here, the spectrum running from 171 MHz to 173 MHz is the quiet region within the 165-175 MHz channel that was chosen according to the 100-200MHz nighttime spectrum shown in Figure \ref{Fig:narrowchannels}.
+	\caption{Here, the spectrum running from 171 MHz to 173 MHz is the quiet region within the 165 - 175 MHz channel that was chosen according to the 100 - 200MHz nighttime spectrum shown in Figure \ref{Fig:narrowchannels}.
 \label{Fig:165175allnight} }
 	\end{center}
 \end{figure}
@@ -402,8 +503,8 @@ blah blah blah blah blah
 \clearpage
 
 \subsection{How well did we place everything}
-stringent parameters affect the overall parabolic dish, surface error, geometry of rays, 
-important that the hub is centered at the vertex within couple inches....
+stringent parameters that affect the overall parabolic dish surface error, geometry of rays, 
+-the hub is centered at the vertex within couple inches....
 
 Resurvery the center for hub after telephone poles were stabilized in the ground. The telephone poles have varying diamater and along the length. 
 
@@ -498,10 +599,10 @@ from the Mt. Cuba Astronomical Association.
 
 \end{document}
 
-\begin{figure}[H]
-	\begin{center}
-	\includegraphics[width =\textwidth]{}
-	\caption{
-\label{Fig:} }
-	\end{center}
-\end{figure}
+%\begin{figure}[H]
+%	\begin{center}
+%	\includegraphics[width =\textwidth]{}
+%	\caption{
+%\label{Fig:} }
+%	\end{center}
+%\end{figure}
