@@ -265,19 +265,18 @@ VSWR & = \frac{E_{max}}{E_{min}} \nonumber \\
 where $E_{max}$ and $E_{min}$ are in reference to the envelop of the travelling 
 wave. 
 
-Reference: G. Gonzalez, ‘Microwave Transistor Amplifiers: Analysis and Design,’ Prentice Hall, 1984
+--(Further Reference: G. Gonzalez, ‘Microwave Transistor Amplifiers: Analysis and Design,’ Prentice Hall, 1984)---
 
 When the VNA measures the S-parameters in the frequency domain, the data is 
 measured across a pre-defined frequency range and stored at discrete points 
 across this span. The frequency spacing between data points is proportional to 
-the frequency span and inversely proportional to the total number of data points
-.
+the frequency span and inversely proportional to the total number of data points.
 
 Time domain reflectometry (TDR) is carried out with the feed as the device 
 under test after the mesh panels are installed. In this application, time 
 domain reflectometry measures the reflections on the dish as a function of time 
 as a result of impedance mistmatch between the feed electronics and the sky 
-signal. The characteristic impedance of the output signal from the vector network analyzer and transmission coaxial cable is $50\Omega$. The impedance in free space is $120\pi\Omega$, with the use of a 4:1 passive balun at each polarization, the signal through the balun at the reference plane should have a characteristic impedance of $30\pi\Omega$. In practice, a third impedance in the system comes from the PAPER feed element itself and is simulated as $\sim130\Omega$. In effect, the test has two devices under test in the network.
+signal. The characteristic impedance of the output signal from the vector network analyzer and transmission coaxial cable is $50\Omega$. The impedance of free space is $120\pi\Omega$, with the use of a 4:1 passive balun at each polarization, the signal through the balun at the reference plane should have a characteristic impedance of $30\pi\Omega$. In practice, a third impedance in the system comes from the PAPER feed element itself and is simulated as $\sim130\Omega$. In effect, the test has two devices under test in the network.
 
 Each polarization is connected to a port on the vector network analyzer, the time axis represent the physical distance as the signals propagate along the transmission cables. The physical distance of can be related to the time axis using:
 \begin{equation}
@@ -292,7 +291,26 @@ propagation to be the speed of light $c$, thereby $1$ ns is equivalent to $29.98
 The expected reflection from simulation and mathematical derivation is -$60$dB by $2$ reflections between the focal point and the vertex. The designed focal length of the dish is $4.5$m, $2$ times of reflection (i.e. $4$ crossings attenuation) corresponds to $59.0$ ns in time domain.
 
 \subsection{Choice of Hardware}
-The dual-polarization feed used in PAPER is implemented in this prototype, consisted of four sleeved dipoles, the crossed dipoles made from copper tubing are encased between two thin alminium disks(A. Parsons, 2008). A 4:1 passive balun is attached to the dipole through a mating board for each polarization, fixed-length $50\Omega$ coaxial cables connect the baluns to the ports of a VNA for TDR measurements. The LMR400 coaxial cables of length 10 m has a signal attenuation of $\sim$0.5 dB over 10 m at 150 MHz. The Aglient ES8753A is being used as the VNA to carry out the TDR measurements, the system dynamic range is 100 dB at 16 MHz to 3 GHz and the directivity is 55 dB at 300 kHz - 1.3 GHz, where the frequency range of interest is 50 MHz - 1 GHz. 
+The dual-polarization feed used in PAPER is implemented in this prototype, consisted of four
+ sleeved dipoles, the crossed dipoles made from copper tubing are encased between two thin
+ alminium disks(A. Parsons, 2008). A 4:1 passive balun is attached to the dipole through a
+ mating board for each polarization, fixed-length $50\Omega$ coaxial cables connect the
+ baluns to the ports of a VNA for TDR measurements. The left drawing on Figure
+ \ref{fig:connection} demonstrates the electronic setup while performing the TDR
+ measurements. The LMR400 coaxial cables of length 10 m has a signal attenuation of
+ $\sim$0.5 dB over 10 m at 150 MHz. The Aglient ES8753A is being used as the VNA to carry
+ out the TDR measurements, the system dynamic range is 100 dB at 16 MHz to 3 GHz and the
+ directivity is 55 dB at 300 kHz - 1.3 GHz, where the frequency range of interest is 50 MHz - 1
+ GHz. 
+
+\begin{figure}[H]
+	\begin{center}
+	\includegraphics[width =.4\textwidth]{./dish_plots/dishdrawsetup}
+	\caption{The drawing on the left shows the setup used for TDR measurements with the use of a vector network analyzer and two passive baluns. The drawing on the right is the setup used for sky test in Section \ref{sec:RFI}, where the baluns are replaced by a PAPER balun. In any tests, the feed is hung up above the dish.
+\label{fig:connection}}
+	\end{center}
+\end{figure}
+\clearpage
 
 \subsection{Calibration of VNA}
 Calibration is performed prior to taking measurements to eliminate the systematic effects caused by cables, adapters, and connectors. Performing calibration at the end of the cables shifts the reference plane to the SMA connectors of the cables that are connecting the baluns with zero phase, zero loss and zero mistmatch; as such, the measurements taken are showing only the effects of the feed and baluns under different configurations. The full two port calibration is done by attaching the calibration standards (SHORT, OPEN, LOAD, and THROUGH) to the end of the $50\Omega$ cables, the VNA calculates the correction coefficients and applies the coefficients subsequently to each measurements. The calibration coefficients includes offset delay, capacitance in the form of a fourth order polynomial, inductance as a fourth order polynomial, offset loss as resistance per second, and offset characteristic impedance. 
@@ -422,6 +440,7 @@ $59$ ns, the response is down by -$59.9$ dB.
 \end{figure}
 \clearpage
 \subsection{RFI investigation}
+\label{sec:RFI}
 To measure the spectra of the sky with the prototype, the dipole element is connected to the PAPER active balun which has a total amplification of $\sim 32$ dB for the signals from both polarizations and outputs analog signals through fixed-length RG-6 $75\Omega$ coaxial cables into the PAPER receiver. The receiver contains two 100-200MHz bandwidth filters, and outputs $50\Omega$ signals after amplification with gain $\sim$ XX dB. The $50\Omega$ signals travel along the LMR 400 cables to the Agilent E4407B spectrum analyzer. The spectra are taken with 401 data points, ranging from $100$ - $200$ MHz, and 50 measurements are averaged to improve the SNR, the resolution bandwidth is specified to be 1 MHz with 0 dB attenuation, and the resulting spectra has a resolution of 0.25 MHz.
 
 Cygnus A, a radio bright source is at right accension $19h59m28s$ and declination $+40^\circ44'02"$ and the dish is located at $+37.98^\circ$ latitude, and $-122.19^\circ$ longitude. Cygnus A, hence is an ideal source for the sky test as it transits at night time during the summer when observations are carried out. Three spectra shown in Figure \ref{Fig:RFI} are taken at different times in a day: daytime, before and during the transit of Cygnus A in our beam during the nighttime.
